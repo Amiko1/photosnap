@@ -1,0 +1,257 @@
+/* http://meyerweb.com/eric/tools/css/reset/ 
+   v2.0 | 20110126
+   License: none (public domain)
+*/
+@import url("https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&display=swap");
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed,
+figure, figcaption, footer, header, hgroup,
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: 100%;
+  font: inherit;
+  vertical-align: baseline;
+}
+
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure,
+footer, header, hgroup, menu, nav, section {
+  display: block;
+}
+
+body {
+  line-height: 1;
+}
+
+ol, ul {
+  list-style: none;
+}
+
+blockquote, q {
+  quotes: none;
+}
+
+blockquote:before, blockquote:after,
+q:before, q:after {
+  content: "";
+  content: none;
+}
+
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+:root {
+  --main-accent-1-hsl: 28, 100%, 79%;
+  --main-accent-2-hsl: 329, 36%, 59%;
+  --main-accent-3-hsl: 229, 100%, 67%;
+  --pure-white: #FFFFFF;
+  --pure-black: #000000;
+  --light-gray:#DFDFDF;
+}
+
+:root {
+  --font-large: 40px;
+  --font-medium: 24px;
+  --font-small: 18px;
+  --font-tinny: 15px;
+  --font-xs: 12px;
+  --line-large: 48px;
+  --line-medium: 25px;
+  --line-small: 16px;
+  --letter-large: 4.17px;
+  --letter-small: 2px;
+  --font-bold: 700;
+  --font-regular: 500;
+}
+
+body {
+  font-family: "DM Sans", sans-serif;
+}
+
+.navigation {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1.5rem 1.5rem;
+  background: var(--pure-white);
+}
+.navigation__menu {
+  z-index: -1;
+  position: fixed;
+  width: 100%;
+  left: 0;
+  top: 40px;
+  padding: 3.75rem 2rem 2rem 2rem;
+  margin: 0 auto;
+  transform: translateY(-100%);
+  transition: all 0.3s ease-in-out;
+}
+.navigation__menu ul {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+  padding-bottom: 20px;
+  border-bottom: 1px solid gray;
+  margin-bottom: 20px;
+}
+.navigation__menu ul li a {
+  font-size: 0.9375rem;
+  font-weight: var(--font-bold);
+  line-height: 0.9375rem;
+  letter-spacing: 2.5px;
+  text-decoration: none;
+  color: var(--pure-black);
+}
+.navigation__menu hr {
+  background: var(--pure-gray);
+  margin-block: 1.25rem;
+}
+.navigation__menu.active {
+  transform: translateY(0);
+}
+
+@media (min-width: 768px) {
+  .navigation__menu {
+    position: initial;
+    display: flex;
+    justify-content: space-evenly;
+    z-index: initial;
+    transform: initial;
+    padding: initial;
+    width: 100%;
+  }
+  .navigation__menu button {
+    width: initial;
+    margin-left: auto;
+    white-space: nowrap;
+  }
+  .navigation__menu ul {
+    width: 100%;
+    display: flex;
+    padding: initial;
+    margin: initial;
+    flex-direction: row;
+    justify-content: center;
+    border: initial;
+  }
+}
+.btn {
+  padding: 0.75rem 2.8125rem;
+  color: var(--pure-white);
+  background: var(--pure-black);
+  border: 0px;
+  transition: 0.2s ease-out;
+  cursor: pointer;
+  font-size: var(--font-xs);
+  line-height: var(--line-small);
+  letter-spacing: var(--letter-small);
+  font-weight: var(--font-bold);
+}
+.btn--shadow {
+  color: var(--pure-black);
+  background: var(--pure-white);
+}
+.btn--full {
+  width: 100%;
+}
+.btn:hover {
+  background: var(--light-gray);
+  color: var(--pure-black);
+}
+
+.btn-arrow {
+  font-size: var(--font-xs);
+  line-height: var(--line-small);
+  letter-spacing: var(--letter-small);
+  font-weight: var(--font-bold);
+  display: flex;
+  position: relative;
+  gap: 1rem;
+  cursor: pointer;
+  border: 0;
+  text-align: start;
+  background: none;
+  color: var(--pure-black);
+  --arrow-type: url("../../assets/./icon/arrow-black.svg");
+  --hover-line-color: var(--pure-black);
+}
+.btn-arrow--shadow {
+  --arrow-type: url("../../assets/./icon/arrow-white.svg");
+  color: var(--pure-white);
+  --hover-line-color: var(--pure-white);
+}
+.btn-arrow--full {
+  width: 100%;
+  justify-content: space-around;
+}
+.btn-arrow::after {
+  content: var(--arrow-type);
+}
+.btn-arrow:hover::before {
+  content: "";
+  width: 30%;
+  height: 2px;
+  background: var(--hover-line-color);
+  position: absolute;
+  bottom: 0;
+  animation: fadeIn 0.4s ease-in-out;
+}
+
+.hamburger {
+  cursor: pointer;
+  border: 0;
+  background: none;
+}
+.hamburger__bar {
+  display: block;
+  width: 20px;
+  height: 2px;
+  background: var(--pure-black);
+  transition: all 0.3s ease-in-out;
+}
+.hamburger__bar:last-child {
+  margin-top: 4px;
+}
+.hamburger:hover {
+  opacity: 0.5;
+}
+.hamburger.active .hamburger__bar:last-child {
+  transform: translateY(-3px) rotate(-45deg);
+}
+.hamburger.active .hamburger__bar:first-child {
+  transform: translateY(3px) rotate(45deg);
+}
+
+@media (min-width: 768px) {
+  .hamburger {
+    display: none;
+  }
+}
+
+/*# sourceMappingURL=main.css.map */

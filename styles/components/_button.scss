@@ -1,0 +1,72 @@
+// -----------------------------------------------------------------------------
+// This file contains all styles related to the button component.
+// -----------------------------------------------------------------------------
+
+.btn {
+    padding: toRem(12) toRem(45);
+    color: var(--pure-white);
+    background: var(--pure-black);
+    border: 0px;
+    transition: 0.2s ease-out;
+    cursor: pointer;
+    @include xs-heading;
+
+    &--shadow {
+        color: var(--pure-black);
+        background: var(--pure-white);
+    }
+
+    &--full {
+        width: 100%;
+    }
+    
+    &:hover {
+        background: var(--light-gray);
+        color: var(--pure-black);
+    }
+
+}
+
+.btn-arrow {
+   @include xs-heading;
+   display: flex;
+   position: relative;
+   gap: toRem(16);
+   cursor: pointer;
+   border: 0;
+   text-align: start;
+   background: none;
+   color: var(--pure-black);
+  
+
+   --arrow-type: url('../../assets/./icon/arrow-black.svg');
+   --hover-line-color: var(--pure-black);
+
+   &--shadow {
+    --arrow-type: url('../../assets/./icon/arrow-white.svg');
+    color: var(--pure-white);
+    --hover-line-color: var(--pure-white);
+   }
+
+   &--full {
+    width: 100%;
+    justify-content: space-around;
+   }
+
+   &::after {
+    content: var(--arrow-type);
+   }   
+
+   &:hover {
+     &::before {
+        content: "";
+        width: 30%;
+        height: 2px;
+        background: var(--hover-line-color);
+        position: absolute;
+        bottom: 0;
+        animation: fadeIn 0.4s ease-in-out ;
+     }
+   }
+   
+}

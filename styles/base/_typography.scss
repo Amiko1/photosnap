@@ -1,0 +1,27 @@
+// -----------------------------------------------------------------------------
+// Basic typography style for copy text
+// -----------------------------------------------------------------------------
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&display=swap');
+
+:root {
+    --font-large: 40px;
+    --font-medium: 24px;
+    --font-small: 18px;
+    --font-tinny: 15px;
+    --font-xs: 12px;
+
+    --line-large: 48px;
+    --line-medium: 25px;
+    --line-small: 16px;
+
+    --letter-large: 4.17px;
+    --letter-small: 2px;
+
+    --font-bold: 700;
+    --font-regular: 500;
+}
+
+
+body {
+    font-family: 'DM Sans', sans-serif;
+}
